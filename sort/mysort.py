@@ -1,5 +1,7 @@
 import time
 import numpy as np
+
+# Hàm sắp xếp mảng dùng Quick sort
 def QuickSort(arr, left, right):
     if left >= right:
         return 
@@ -20,6 +22,7 @@ def QuickSort(arr, left, right):
     QuickSort(arr, left, j)
     QuickSort(arr, i, right)
 
+# Hàm sắp xếp mảng dùng Merge sort
 def MergeSort(arr, left, right):
     if left >= right:
         return
@@ -65,6 +68,7 @@ def Heapify(arr, root, size):
         arr[largest], arr[root] = arr[root], arr[largest]
         Heapify(arr, largest, size)
 
+# Hàm sắp xếp mảng dùng Heap sort
 def HeapSort(arr):
     n = len(arr)
 
@@ -74,18 +78,21 @@ def HeapSort(arr):
     for i in range(n - 1, 0, -1):
         arr[0], arr[i] = arr[i], arr[0]
         Heapify(arr, 0, i)
-    
+
+# Hàm tính thời gian thực thi code (ms)
 def TimeCalculation(func, *data):
     start = time.perf_counter()
     func(*data)
     end = time.perf_counter()
     return int((end - start) * 1000)
 
+# Duyệt qua các bộ dữ liệu và tính tốc độ các thuật toán
 for i in range(10):
     with open(f"list{i}.txt","r") as nyann:
         n = int(nyann.readline().strip())
         unsorted_arr = list(map(float, nyann.readline().split()))
     print(f"{i}:")
+
     arr = unsorted_arr.copy()
     print(TimeCalculation(HeapSort, arr), "Heap sort")
     Heap_result = arr.copy()
@@ -102,5 +109,6 @@ for i in range(10):
     Numpy_result = np.sort(unsorted_arr)
     end = time.perf_counter()
     print(int((end - start) * 1000), "sort of Numpy")
-
+    
+    #Kiểm tra kết quả của các hàm sort
     print("Good" if Heap_result == Merge_result == Quick_result == Numpy_result.tolist() else "Fail")
