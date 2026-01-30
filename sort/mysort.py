@@ -1,5 +1,9 @@
+import os
 import time
 import numpy as np
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE_DIR, "data")
 
 # Hàm sắp xếp mảng dùng Quick sort
 def QuickSort(arr, left, right):
@@ -88,7 +92,7 @@ def TimeCalculation(func, *data):
 
 # Duyệt qua các bộ dữ liệu và tính tốc độ các thuật toán
 for i in range(10):
-    with open(f"list{i}.txt","r") as nyann:
+    with open(f"{DATA_DIR}/list{i}.txt","r") as nyann:
         n = int(nyann.readline().strip())
         unsorted_arr = list(map(float, nyann.readline().split()))
     print(f"{i}:")
@@ -109,6 +113,6 @@ for i in range(10):
     Numpy_result = np.sort(unsorted_arr)
     end = time.perf_counter()
     print(int((end - start) * 1000), "sort of Numpy")
-    
+
     #Kiểm tra kết quả của các hàm sort
     print("Good" if Heap_result == Merge_result == Quick_result == Numpy_result.tolist() else "Fail")
