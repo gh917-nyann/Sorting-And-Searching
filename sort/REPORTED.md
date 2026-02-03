@@ -2,7 +2,9 @@
 ### Sinh viên thực hiện: Đỗ Gia Huy 
 ### MSSV: 25520681
 ### Lớp: ATTN2025
-### Nội dung báo cáo: 
+### Nội dung báo cáo:   
+Báo cáo nhằm khảo sát, so sánh và đánh giá thời gian thực hiện của một số
+thuật toán sắp xếp phổ biến dựa trên cùng một bộ dữ liệu.
 #### I.	Kết quả thử nghiệm
    1.	Bảng thời gian thực hiện
 <div align="center">
@@ -30,6 +32,7 @@
 
 #### II.	Kết luận:
 Theo kết quả thử nghiệm có thể thấy:
--	Hàm sort của numpy cho ra thời gian chạy nhanh nhất thậm chí là vượt trội hơn hẳn so với các hàm sort còn lại. Heapsort cho ra thời gian chạy chậm nhất tốc độ gấp khoảng 100 lần so với hàm sort của numpy và 2-3 lần so với 2 hàm sort tự viết còn lại
--	Trong các hàm sort tự viết bằng python thì Quick sort có tốc độ chạy nhanh nhất kế đến là Merge sort cuối cùng là Heap sort.
--	Tốc độ của hàm sort (C++) nhanh hơn nhiều so với các hàm sort tự viết bằng python nhưng không bằng hàm sort của numpy.
+- Hàm sort của numpy cho ra thời gian chạy ngắn nhất thậm chí là vượt trội hơn hẳn so với các hàm sort còn lại. Heapsort cho ra thời gian chạy dài nhất tốc độ chậm hơn khoảng 100 lần so với hàm sort của numpy và 2-3 lần so với 2 hàm sort tự viết còn lại.
+- Trong các hàm sort tự viết bằng python thì Quick sort có thời gian chạy ngắn nhất kế đến là Merge sort cuối cùng là Heap sort.
+- Dù các hàm sort tự viết có độ phức tạp lý thuyết là O(nlogn) nhưng thực tế lại cho thấy Heap sort có chi phí hằng số lớn hơn nhiều dẫn đến tốc độ chạy kém hơn so với 2 thuật toán còn lại.
+- Tốc độ của hàm sort (C++) nhanh hơn nhiều so với các hàm sort tự viết bằng python nhưng không bằng hàm sort của numpy.
