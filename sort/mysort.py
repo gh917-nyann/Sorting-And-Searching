@@ -1,8 +1,9 @@
 import os
 import time
 import numpy as np
-from numba import njit
+from numba import njit # dùng để biên dịch sang mã máy để tăng tốc độ
 
+# Đường dẫn đến data
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
 
@@ -79,7 +80,7 @@ def HeapSort(arr):
         arr[0] = arr[i]
         arr[i] = tmp
         Heapify(arr, 0, i)
-
+# Đo thời gian code
 def TimeCalculation(func, *data):
     start = time.perf_counter()
     func(*data)
@@ -110,6 +111,7 @@ for i in range(10):
     end = time.perf_counter()
     print(int((end - start) * 1000), "sort of Numpy")
 
+    # Kiểm tra lại xem các hàm sort đúng hay sai
     print("Good" if np.array_equal(heap_result, merge_result)
           and np.array_equal(merge_result, quick_result)
           and np.array_equal(quick_result, numpy_result)
